@@ -1,169 +1,145 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>赚钱人格测试</title>
-<style>
-  *{
-    box-sizing:border-box;
-  }
-  body{
-    margin:0;
-    font-family:"Microsoft YaHei",sans-serif;
-    background:
-      radial-gradient(circle at top left, rgba(255,255,255,0.35), transparent 30%),
-      linear-gradient(135deg,#111827,#1f2937,#0f172a);
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:24px;
-    color:#fff;
-  }
-  .wrap{
-    width:100%;
-    max-width:430px;
-  }
-  .card{
-    background:rgba(255,255,255,0.95);
-    backdrop-filter:blur(10px);
-    border-radius:24px;
-    padding:34px 28px;
-    box-shadow:0 20px 60px rgba(0,0,0,0.28);
-    color:#111827;
-  }
-  .badge{
-    display:inline-block;
-    padding:8px 14px;
-    border-radius:999px;
-    background:#eef2ff;
-    color:#4338ca;
-    font-size:13px;
-    font-weight:700;
-    margin-bottom:18px;
-  }
-  h1{
-    font-size:30px;
-    line-height:1.35;
-    margin:0 0 12px 0;
-    color:#0f172a;
-  }
-  .sub{
-    font-size:15px;
-    line-height:1.8;
-    color:#475569;
-    margin-bottom:26px;
-  }
-  .panel{
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    border-radius:18px;
-    padding:18px;
-    margin-bottom:20px;
-  }
-  .panel-title{
-    font-size:14px;
-    color:#334155;
-    margin-bottom:10px;
-    font-weight:700;
-  }
-  input[type="date"]{
-    width:100%;
-    padding:16px;
-    border-radius:14px;
-    border:1px solid #cbd5e1;
-    font-size:16px;
-    outline:none;
-    background:#fff;
-    color:#0f172a;
-  }
-  input[type="date"]:focus{
-    border-color:#6366f1;
-    box-shadow:0 0 0 4px rgba(99,102,241,0.12);
-  }
-  button{
-    width:100%;
-    padding:16px;
-    border:none;
-    border-radius:14px;
-    background:linear-gradient(135deg,#111827,#000000);
-    color:#fff;
-    font-size:17px;
-    font-weight:700;
-    cursor:pointer;
-    box-shadow:0 10px 24px rgba(15,23,42,0.25);
-  }
-  button:hover{
-    opacity:0.96;
-  }
-  .trust{
-    margin-top:18px;
-    text-align:center;
-    font-size:13px;
-    color:#64748b;
-    line-height:1.8;
-  }
-  .points{
-    margin-top:18px;
-    display:grid;
-    gap:10px;
-  }
-  .point{
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    border-radius:14px;
-    padding:12px 14px;
-    color:#334155;
-    font-size:14px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>赚钱人格测试</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", sans-serif;
+      background: linear-gradient(135deg, #111827, #1f2937, #0f172a);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      color: #fff;
+    }
+    .wrap { width: 100%; max-width: 430px; }
+    .card {
+      background: rgba(255,255,255,0.96);
+      border-radius: 24px;
+      padding: 34px 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.28);
+      color: #111827;
+    }
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4338ca;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: 30px;
+      line-height: 1.35;
+      margin: 0 0 12px 0;
+      color: #0f172a;
+    }
+    .sub {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #475569;
+      margin-bottom: 26px;
+    }
+    .panel {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+    .panel-title {
+      font-size: 14px;
+      color: #334155;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    input[type="date"] {
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid #cbd5e1;
+      font-size: 16px;
+      outline: none;
+      background: #fff;
+      color: #0f172a;
+    }
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #111827, #000000);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .points {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+    .point {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      color: #334155;
+      font-size: 14px;
+    }
+    .trust {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.8;
+    }
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="card">
+      <div class="badge">赚钱人格测试 · MVP版</div>
+      <h1>测一测你<br>最适合的赚钱方式</h1>
+      <p class="sub">
+        输入生日，3秒查看你的赚钱人格类型。<br>
+        帮你找到更适合自己的副业方向。
+      </p>
 
-<div class="wrap">
-  <div class="card">
-    <div class="badge">赚钱人格测试 · MVP版</div>
+      <div class="panel">
+        <div class="panel-title">请输入你的生日</div>
+        <input type="date" id="birthday">
+      </div>
 
-    <h1>测一测你<br>最适合的赚钱方式</h1>
+      <button onclick="goResult()">立即测试我的赚钱人格</button>
 
-    <p class="sub">
-      输入生日，3秒查看你的赚钱人格类型。<br>
-      不是空泛鸡汤，而是帮你找到更适合自己的副业方向。
-    </p>
+      <div class="points">
+        <div class="point">✔ 适合副业探索人群</div>
+        <div class="point">✔ 基于数字结构 + 行为倾向模型</div>
+        <div class="point">✔ 3秒生成你的赚钱人格结果</div>
+      </div>
 
-    <div class="panel">
-      <div class="panel-title">请输入你的生日</div>
-      <input type="date" id="birthday">
-    </div>
-
-    <button onclick="go()">立即测试我的赚钱人格</button>
-
-    <div class="points">
-      <div class="point">✔ 适合副业探索人群</div>
-      <div class="point">✔ 基于数字结构 + 行为倾向模型</div>
-      <div class="point">✔ 3秒生成你的赚钱人格结果</div>
-    </div>
-
-    <div class="trust">
-      已帮助 3271+ 用户找到更适合自己的赚钱方向
+      <div class="trust">已帮助 3271+ 用户找到更适合自己的赚钱方向</div>
     </div>
   </div>
-</div>
 
-<script>
-function go(){
-  var birthday = document.getElementById("birthday").value;
-
-  if(birthday==""){
-    alert("请选择生日");
-    return;
-  }
-
-  localStorage.setItem("birthday", birthday);
-  window.location.href = "result.html";
-}
-</script>
-
+  <script>
+    function goResult() {
+      var birthday = document.getElementById("birthday").value;
+      if (!birthday) {
+        alert("请选择生日");
+        return;
+      }
+      localStorage.setItem("birthday", birthday);
+      window.location.href = "result.html";
+    }
+  </script>
 </body>
 </html>

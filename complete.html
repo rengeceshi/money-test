@@ -1,235 +1,221 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>完整赚钱人格报告</title>
-<style>
-  *{
-    box-sizing:border-box;
-  }
-  body{
-    margin:0;
-    font-family:"Microsoft YaHei",sans-serif;
-    background:
-      radial-gradient(circle at top left, rgba(255,255,255,0.2), transparent 25%),
-      linear-gradient(135deg,#111827,#1e293b,#0f172a);
-    min-height:100vh;
-    padding:30px 16px 40px;
-  }
-  .wrap{
-    max-width:500px;
-    margin:0 auto;
-  }
-  .card{
-    background:rgba(255,255,255,0.97);
-    border-radius:24px;
-    padding:28px 24px;
-    box-shadow:0 26px 64px rgba(0,0,0,0.28);
-  }
-  .badge{
-    display:inline-block;
-    padding:8px 14px;
-    border-radius:999px;
-    background:#ecfeff;
-    color:#0f766e;
-    font-size:13px;
-    font-weight:700;
-    margin-bottom:14px;
-  }
-  h2{
-    margin:0;
-    text-align:center;
-    font-size:28px;
-    line-height:1.4;
-    color:#0f172a;
-  }
-  .desc{
-    text-align:center;
-    color:#64748b;
-    font-size:15px;
-    line-height:1.8;
-    margin:12px 0 24px;
-  }
-  .section{
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    border-radius:18px;
-    padding:16px;
-    margin-bottom:14px;
-  }
-  .section h3{
-    margin:0 0 10px 0;
-    font-size:16px;
-    color:#0f172a;
-  }
-  .section p{
-    margin:0;
-    color:#475569;
-    line-height:1.95;
-    font-size:15px;
-  }
-  .keyword{
-    background:linear-gradient(135deg,#fff7ed,#fffbeb);
-    border:1px solid #fed7aa;
-  }
-  .keyword-text{
-    font-weight:700;
-    color:#9a3412 !important;
-  }
-  button{
-    width:100%;
-    padding:16px;
-    border:none;
-    border-radius:14px;
-    background:linear-gradient(135deg,#111827,#000000);
-    color:#fff;
-    font-size:17px;
-    font-weight:700;
-    cursor:pointer;
-    margin-top:8px;
-  }
-  .footer-tip{
-    text-align:center;
-    color:#64748b;
-    font-size:13px;
-    margin-top:12px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>完整赚钱人格报告</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", sans-serif;
+      background: linear-gradient(135deg, #111827, #1e293b, #0f172a);
+      min-height: 100vh;
+      padding: 30px 16px 40px;
+    }
+    .wrap {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .card {
+      background: rgba(255,255,255,0.97);
+      border-radius: 24px;
+      padding: 28px 24px;
+      box-shadow: 0 26px 64px rgba(0,0,0,0.28);
+    }
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #ecfeff;
+      color: #0f766e;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    h2 {
+      margin: 0;
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.4;
+      color: #0f172a;
+    }
+    .desc {
+      text-align: center;
+      color: #64748b;
+      font-size: 15px;
+      line-height: 1.8;
+      margin: 12px 0 24px;
+    }
+    .section {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+    .section h3 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      color: #0f172a;
+    }
+    .section p {
+      margin: 0;
+      color: #475569;
+      line-height: 1.95;
+      font-size: 15px;
+    }
+    .keyword {
+      background: linear-gradient(135deg, #fff7ed, #fffbeb);
+      border: 1px solid #fed7aa;
+    }
+    .keyword-text {
+      font-weight: 700;
+      color: #9a3412 !important;
+    }
+    button {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #111827, #000000);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    .footer-tip {
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="card">
+      <div class="badge">完整版赚钱人格报告</div>
 
-<div class="wrap">
-  <div class="card">
-    <div class="badge">完整版赚钱人格报告</div>
+      <h2 id="reportTitle">你的完整赚钱人格报告</h2>
+      <div class="desc" id="reportDesc"></div>
 
-    <h2 id="reportTitle">你的完整赚钱人格报告</h2>
+      <div class="section">
+        <h3>① 人格总结</h3>
+        <p id="summary"></p>
+      </div>
 
-    <div class="desc" id="reportDesc"></div>
+      <div class="section">
+        <h3>② 你的赚钱优势</h3>
+        <p id="advantage"></p>
+      </div>
 
-    <div class="section">
-      <h3>① 人格总结</h3>
-      <p id="summary"></p>
+      <div class="section">
+        <h3>③ 你最容易失败的原因</h3>
+        <p id="risk"></p>
+      </div>
+
+      <div class="section">
+        <h3>④ 最适合你的副业方向</h3>
+        <p id="sidejob"></p>
+      </div>
+
+      <div class="section">
+        <h3>⑤ 未来6个月成长路线</h3>
+        <p id="plan"></p>
+      </div>
+
+      <div class="section keyword">
+        <h3>⑥ 你的赚钱关键词</h3>
+        <p class="keyword-text" id="keyword"></p>
+      </div>
+
+      <button onclick="goBack()">返回首页</button>
+
+      <div class="footer-tip">先跑通第一种赚钱方式，再考虑放大。</div>
     </div>
-
-    <div class="section">
-      <h3>② 你的赚钱优势</h3>
-      <p id="advantage"></p>
-    </div>
-
-    <div class="section">
-      <h3>③ 你最容易失败的原因</h3>
-      <p id="risk"></p>
-    </div>
-
-    <div class="section">
-      <h3>④ 最适合你的副业方向</h3>
-      <p id="sidejob"></p>
-    </div>
-
-    <div class="section">
-      <h3>⑤ 未来6个月成长路线</h3>
-      <p id="plan"></p>
-    </div>
-
-    <div class="section keyword">
-      <h3>⑥ 你的赚钱关键词</h3>
-      <p class="keyword-text" id="keyword"></p>
-    </div>
-
-    <button onclick="goBack()">返回首页</button>
-
-    <div class="footer-tip">先跑通第一种赚钱方式，再考虑放大。</div>
   </div>
-</div>
 
-<script>
-var birthday = localStorage.getItem("birthday");
+  <script>
+    var birthday = localStorage.getItem("birthday");
 
-function getCoreNumber(dateStr){
-  var nums = dateStr.replace(/-/g,"").split("");
-  var total = 0;
-
-  for(var i=0;i<nums.length;i++){
-    total += parseInt(nums[i]);
-  }
-
-  while(total > 9){
-    var temp = total.toString().split("");
-    total = 0;
-    for(var j=0;j<temp.length;j++){
-      total += parseInt(temp[j]);
+    function getCoreNumber(dateStr) {
+      var nums = dateStr.replace(/-/g, "").split("");
+      var total = 0;
+      for (var i = 0; i < nums.length; i++) {
+        total += parseInt(nums[i]);
+      }
+      while (total > 9) {
+        var temp = total.toString().split("");
+        total = 0;
+        for (var j = 0; j < temp.length; j++) {
+          total += parseInt(temp[j]);
+        }
+      }
+      return total;
     }
-  }
 
-  return total;
-}
+    var core = getCoreNumber(birthday);
+    var title = "";
+    var desc = "";
+    var summary = "";
+    var advantage = "";
+    var risk = "";
+    var sidejob = "";
+    var plan = "";
+    var keyword = "";
 
-var core = getCoreNumber(birthday);
+    if (core >= 1 && core <= 3) {
+      title = "行动赚钱型完整报告";
+      desc = "你适合通过行动和项目赚钱";
+      summary = "你属于行动型赚钱人格。你不是靠慢慢等机会赚钱，而是靠行动创造机会。";
+      advantage = "你最大的优势是执行力强、敢尝试、启动快。当别人还在犹豫时，你已经开始行动，这让你更容易抓住赚钱机会。";
+      risk = "你最容易失败不是能力不足，而是方向换太快。你容易因为短期没有结果就怀疑自己，从而失去长期积累。";
+      sidejob = "最适合你的副业包括：项目套利、电商、本地服务、资源整合、副业项目执行。";
+      plan = "未来6个月建议：先找一个能快速见结果的小项目，坚持至少3个月，然后再考虑优化。";
+      keyword = "执行、速度、试错";
+    } else if (core >= 4 && core <= 5) {
+      title = "稳定赚钱型完整报告";
+      desc = "你适合长期复利赚钱";
+      summary = "你属于稳定型赚钱人格。你更适合长期积累，而不是快速爆发。";
+      advantage = "你的优势是耐心强、抗压、稳定执行能力强。你比别人更容易通过长期坚持获得成果。";
+      risk = "你最大的问题是过于谨慎，容易错过机会。不是你不行，而是你太想等确定后再开始。";
+      sidejob = "适合：自媒体、知识输出、长期项目、复利业务。";
+      plan = "未来6个月建议：选择一个长期方向，坚持输出，不要急着求快。";
+      keyword = "坚持、复利、长期";
+    } else if (core >= 6 && core <= 7) {
+      title = "表达赚钱型完整报告";
+      desc = "你适合通过表达赚钱";
+      summary = "你属于表达型赚钱人格。你赚钱更多来自影响力，而不是重复劳动。";
+      advantage = "你有创意、有表达能力、有感染力，适合通过内容或分享赚钱。";
+      risk = "你最大问题是执行节奏不稳定。想很多，做得少。";
+      sidejob = "适合：短视频、知识IP、自媒体、个人品牌。";
+      plan = "未来6个月建议：固定输出内容，每周至少发布2次。";
+      keyword = "表达、影响力、输出";
+    } else {
+      title = "策略赚钱型完整报告";
+      desc = "你适合通过策略赚钱";
+      summary = "你属于策略型赚钱人格，你更擅长研究赚钱模式。";
+      advantage = "你的优势是逻辑强、观察力强、能看懂赚钱模式。";
+      risk = "最大问题是想太多行动太少。";
+      sidejob = "适合：信息差项目、资源整合、中介模式。";
+      plan = "未来6个月建议：选择一个方向，小规模测试，然后持续优化。";
+      keyword = "策略、分析、行动";
+    }
 
-var title="";
-var desc="";
-var summary="";
-var advantage="";
-var risk="";
-var sidejob="";
-var plan="";
-var keyword="";
+    document.getElementById("reportTitle").innerText = title;
+    document.getElementById("reportDesc").innerText = desc;
+    document.getElementById("summary").innerText = summary;
+    document.getElementById("advantage").innerText = advantage;
+    document.getElementById("risk").innerText = risk;
+    document.getElementById("sidejob").innerText = sidejob;
+    document.getElementById("plan").innerText = plan;
+    document.getElementById("keyword").innerText = keyword;
 
-if(core >=1 && core <=3){
-  title="行动赚钱型完整报告";
-  desc="你适合通过行动和项目赚钱";
-  summary="你属于行动型赚钱人格。你不是靠慢慢等机会赚钱，而是靠行动创造机会。";
-  advantage="你最大的优势是执行力强、敢尝试、启动快。当别人还在犹豫时，你已经开始行动，这让你更容易抓住赚钱机会。";
-  risk="你最容易失败不是能力不足，而是方向换太快。你容易因为短期没有结果就怀疑自己，从而失去长期积累。";
-  sidejob="最适合你的副业包括：项目套利、电商、本地服务、资源整合、副业项目执行。";
-  plan="未来6个月建议：先找一个能快速见结果的小项目，坚持至少3个月，然后再考虑优化。";
-  keyword="执行、速度、试错";
-}
-else if(core>=4 && core<=5){
-  title="稳定赚钱型完整报告";
-  desc="你适合长期复利赚钱";
-  summary="你属于稳定型赚钱人格。你更适合长期积累，而不是快速爆发。";
-  advantage="你的优势是耐心强、抗压、稳定执行能力强。你比别人更容易通过长期坚持获得成果。";
-  risk="你最大的问题是过于谨慎，容易错过机会。不是你不行，而是你太想等确定后再开始。";
-  sidejob="适合：自媒体、知识输出、长期项目、复利业务。";
-  plan="未来6个月建议：选择一个长期方向，坚持输出，不要急着求快。";
-  keyword="坚持、复利、长期";
-}
-else if(core>=6 && core<=7){
-  title="表达赚钱型完整报告";
-  desc="你适合通过表达赚钱";
-  summary="你属于表达型赚钱人格。你赚钱更多来自影响力，而不是重复劳动。";
-  advantage="你有创意、有表达能力、有感染力，适合通过内容或分享赚钱。";
-  risk="你最大问题是执行节奏不稳定。想很多，做得少。";
-  sidejob="适合：短视频、知识IP、自媒体、个人品牌。";
-  plan="未来6个月建议：固定输出内容，每周至少发布2次。";
-  keyword="表达、影响力、输出";
-}
-else{
-  title="策略赚钱型完整报告";
-  desc="你适合通过策略赚钱";
-  summary="你属于策略型赚钱人格，你更擅长研究赚钱模式。";
-  advantage="你的优势是逻辑强、观察力强、能看懂赚钱模式。";
-  risk="最大问题是想太多行动太少。";
-  sidejob="适合：信息差项目、资源整合、中介模式。";
-  plan="未来6个月建议：选择一个方向，小规模测试，然后持续优化。";
-  keyword="策略、分析、行动";
-}
-
-document.getElementById("reportTitle").innerText=title;
-document.getElementById("reportDesc").innerText=desc;
-document.getElementById("summary").innerText=summary;
-document.getElementById("advantage").innerText=advantage;
-document.getElementById("risk").innerText=risk;
-document.getElementById("sidejob").innerText=sidejob;
-document.getElementById("plan").innerText=plan;
-document.getElementById("keyword").innerText=keyword;
-
-function goBack(){
-  window.location.href="index.html";
-}
-</script>
-
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
 </body>
 </html>
