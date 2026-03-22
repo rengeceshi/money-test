@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赚钱人格测试结果</title>
+<style>
+  *{
+    box-sizing:border-box;
+  }
+  body{
+    margin:0;
+    font-family:"Microsoft YaHei",sans-serif;
+    background:
+      radial-gradient(circle at top right, rgba(255,255,255,0.25), transparent 25%),
+      linear-gradient(135deg,#0f172a,#111827,#1e293b);
+    min-height:100vh;
+    padding:28px 18px 40px;
+  }
+  .wrap{
+    max-width:460px;
+    margin:0 auto;
+  }
+  .card{
+    background:rgba(255,255,255,0.96);
+    border-radius:24px;
+    padding:28px 24px;
+    box-shadow:0 24px 60px rgba(0,0,0,0.28);
+  }
+  .top-tag{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:999px;
+    background:#eef2ff;
+    color:#4338ca;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:14px;
+  }
+  h2{
+    margin:0 0 10px 0;
+    color:#0f172a;
+    font-size:28px;
+    line-height:1.4;
+  }
+  .desc{
+    color:#475569;
+    font-size:15px;
+    line-height:1.8;
+    margin-bottom:18px;
+  }
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:18px 0 24px;
+  }
+  .tag{
+    background:#f1f5f9;
+    color:#334155;
+    border-radius:999px;
+    padding:9px 14px;
+    font-size:13px;
+    font-weight:700;
+  }
+  .box{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:18px;
+    padding:16px;
+    margin-bottom:16px;
+  }
+  .box-title{
+    font-size:15px;
+    font-weight:700;
+    color:#0f172a;
+    margin-bottom:10px;
+  }
+  .box p{
+    margin:8px 0;
+    color:#475569;
+    line-height:1.8;
+    font-size:14px;
+  }
+  .analysis{
+    font-size:15px;
+    color:#334155;
+    line-height:1.95;
+  }
+  .tip{
+    color:#ef4444;
+    font-size:14px;
+    text-align:center;
+    margin:18px 0 12px;
+    font-weight:700;
+  }
+  button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(135deg,#111827,#000000);
+    color:white;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 12px 26px rgba(15,23,42,0.22);
+  }
+  .note{
+    margin-top:12px;
+    text-align:center;
+    font-size:13px;
+    color:#64748b;
+    line-height:1.8;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="card">
+    <div class="top-tag">测试结果已生成</div>
+
+    <h2 id="type">你的赚钱人格类型</h2>
+
+    <div class="desc" id="desc"></div>
+
+    <div class="tags">
+      <div class="tag" id="t1"></div>
+      <div class="tag" id="t2"></div>
+      <div class="tag" id="t3"></div>
+    </div>
+
+    <div class="box">
+      <div class="box-title">你的基础分析</div>
+      <div class="analysis" id="analysis"></div>
+    </div>
+
+    <div class="box">
+      <div class="box-title">人格计算依据</div>
+      <p>✔ 出生数字结构分析</p>
+      <p>✔ 行为倾向模型匹配</p>
+      <p>✔ 赚钱方式适配逻辑</p>
+      <p style="font-size:13px;color:#64748b;">本测试基于行为模型与数字结构分析生成，仅用于方向参考。</p>
+    </div>
+
+    <div class="box">
+      <div class="box-title">你的完整赚钱报告包含</div>
+      <p>✔ 你真正适合的赚钱方式</p>
+      <p>✔ 为什么你努力却赚不到钱</p>
+      <p>✔ 最适合你的副业方向</p>
+      <p>✔ 未来6个月赚钱成长路线</p>
+      <p>✔ 你的隐藏赚钱优势</p>
+    </div>
+
+    <div class="tip">你的赚钱人格已生成，建议查看完整分析</div>
+
+    <button onclick="goComplete()">查看我真正适合的赚钱方式 ￥19.9</button>
+
+    <div class="note">已有 1273 人查看完整报告</div>
+  </div>
+</div>
+
+<script>
+var birthday = localStorage.getItem("birthday");
+
+function getCoreNumber(dateStr){
+  var nums = dateStr.replace(/-/g,"").split("");
+  var total = 0;
+
+  for(var i=0;i<nums.length;i++){
+    total += parseInt(nums[i]);
+  }
+
+  while(total > 9){
+    var temp = total.toString().split("");
+    total = 0;
+    for(var j=0;j<temp.length;j++){
+      total += parseInt(temp[j]);
+    }
+  }
+
+  return total;
+}
+
+var core = getCoreNumber(birthday);
+
+var type="";
+var desc="";
+var t1="";
+var t2="";
+var t3="";
+var text="";
+
+if(core >= 1 && core <= 3){
+  type="行动赚钱型（执行者）";
+  desc="你适合通过行动和项目赚钱。你的优势不在“想得多”，而在“动得快”。";
+  t1="执行力强";
+  t2="敢尝试";
+  t3="行动派";
+  text="你的最大优势不是努力，而是敢开始。你适合项目型、副业型、快速试错型赚钱方式。如果方向对，你往往比别人更容易赚到第一桶金。但你要避免频繁换方向。";
+}
+else if(core >= 4 && core <= 5){
+  type="稳定赚钱型（积累者）";
+  desc="你适合长期复利赚钱。你不是爆发型选手，而是越做越稳的类型。";
+  t1="稳";
+  t2="耐力强";
+  t3="靠谱";
+  text="你的优势是坚持能力强，适合长期项目，比如内容、副业积累、长期成长路线。你不适合短期投机型赚钱方式，你适合通过持续积累获得稳定收入。";
+}
+else if(core >= 6 && core <= 7){
+  type="表达赚钱型（创作者）";
+  desc="你适合通过内容和表达赚钱。你的价值更多来自影响力，而不是重复劳动。";
+  t1="创意强";
+  t2="表达力";
+  t3="想法多";
+  text="你适合通过分享、表达、创意赚钱，比如短视频、自媒体、个人IP等。你最大的问题不是能力，而是执行不够稳定。如果能持续输出，你比很多人更容易成功。";
+}
+else{
+  type="策略赚钱型（思考者）";
+  desc="你适合通过策略和信息差赚钱。你更擅长研究模式，而不是无脑拼体力。";
+  t1="会分析";
+  t2="逻辑强";
+  t3="善观察";
+  text="你更擅长研究、分析、发现机会，适合做信息差、资源整合、中介模式等赚钱方式。你最大的问题不是没能力，而是容易想太多、行动太慢。";
+}
+
+document.getElementById("type").innerText = type;
+document.getElementById("desc").innerText = desc;
+document.getElementById("t1").innerText = t1;
+document.getElementById("t2").innerText = t2;
+document.getElementById("t3").innerText = t3;
+document.getElementById("analysis").innerText = text;
+
+function goComplete(){
+  window.location.href = "complete.html";
+}
+</script>
+
+</body>
+</html>
