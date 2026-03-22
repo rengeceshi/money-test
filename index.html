@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -57,18 +57,27 @@
     .panel-title {
       font-size: 14px;
       color: #334155;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       font-weight: 700;
     }
-    input[type="date"] {
+    .date-row {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 10px;
+    }
+    select {
       width: 100%;
-      padding: 16px;
+      padding: 14px 12px;
       border-radius: 14px;
       border: 1px solid #cbd5e1;
       font-size: 16px;
       outline: none;
       background: #fff;
       color: #0f172a;
+    }
+    select:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 4px rgba(99,102,241,0.12);
     }
     button {
       width: 100%;
@@ -86,7 +95,7 @@
       display: grid;
       gap: 10px;
     }
- {
+    .point {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 14px;
@@ -107,31 +116,28 @@
   <div class="wrap">
     <div class="card">
       <div class="badge">赚钱人格测试 · MVP版</div>
+
       <h1>普通人其实只有4种赚钱体质<br>你属于哪一种？</h1>
+
       <p class="sub">
         很多人努力却赚不到钱<br>
-不是不努力，而是赚钱方式选错了<br><br>
-输入生日查看你更适合：
-副业 / 项目 / 内容赚钱
+        不是不努力，而是赚钱方式选错了<br><br>
+        输入生日查看你更适合：副业 / 项目 / 内容赚钱
       </p>
 
       <div class="panel">
         <div class="panel-title">请输入你的生日</div>
-       <div class="date-row">
-
-<select id="year">
-<option value="">年份</option>
-</select>
-
-<select id="month">
-<option value="">月份</option>
-</select>
-
-<select id="day">
-<option value="">日期</option>
-</select>
-
-</div>
+        <div class="date-row">
+          <select id="year">
+            <option value="">年份</option>
+          </select>
+          <select id="month">
+            <option value="">月份</option>
+          </select>
+          <select id="day">
+            <option value="">日期</option>
+          </select>
+        </div>
       </div>
 
       <button onclick="goResult()">查看我的赚钱体质</button>
@@ -147,109 +153,79 @@
   </div>
 
   <script>
+    function initDate() {
+      var yearSelect = document.getElementById("year");
+      var monthSelect = document.getElementById("month");
+      var daySelect = document.getElementById("day");
+
+      for (var y = 2026; y >= 1960; y--) {
+        var optionY = document.createElement("option");
+        optionY.value = y;
+        optionY.text = y + "年";
+        yearSelect.appendChild(optionY);
+      }
+
+      for (var m = 1; m <= 12; m++) {
+        var optionM = document.createElement("option");
+        optionM.value = m < 10 ? "0" + m : "" + m;
+        optionM.text = m + "月";
+        monthSelect.appendChild(optionM);
+      }
+
+      updateDays();
+
+      yearSelect.addEventListener("change", updateDays);
+      monthSelect.addEventListener("change", updateDays);
+    }
+
+    function updateDays() {
+      var year = document.getElementById("year").value;
+      var month = document.getElementById("month").value;
+      var daySelect = document.getElementById("day");
+      var currentDay = daySelect.value;
+
+      daySelect.innerHTML = '<option value="">日期</option>';
+
+      var maxDays = 31;
+
+      if (month === "04" || month === "06" || month === "09" || month === "11") {
+        maxDays = 30;
+      } else if (month === "02") {
+        if (year) {
+          var y = parseInt(year, 10);
+          maxDays = ((y % 4 === 0 && y % 100 !== 0) || (y % 400 === 0)) ? 29 : 28;
+        } else {
+          maxDays = 28;
+        }
+      }
+
+      for (var d = 1; d <= maxDays; d++) {
+        var optionD = document.createElement("option");
+        optionD.value = d < 10 ? "0" + d : "" + d;
+        optionD.text = d + "日";
+        if (optionD.value === currentDay) {
+          optionD.selected = true;
+        }
+        daySelect.appendChild(optionD);
+      }
+    }
+
     function goResult() {
+      var year = document.getElementById("year").value;
+      var month = document.getElementById("month").value;
+      var day = document.getElementById("day").value;
 
-var year=document.getElementById("year").value;
+      if (!year || !month || !day) {
+        alert("请选择完整生日");
+        return;
+      }
 
-var month=document.getElementById("month").value;
-
-var day=document.getElementById("day").value;
-
-if(!year || !month || !day){
-
-alert("请选择完整生日");
-
-return;
-
-}
-
-var birthday=year+"-"+month+"-"+day;
-
-localStorage.setItem("birthday", birthday);
-
-window.location.href="result.html";
-
-}
+      var birthday = year + "-" + month + "-" + day;
       localStorage.setItem("birthday", birthday);
       window.location.href = "result.html";
     }
-  function initDate(){
 
-var year=document.getElementById("year");
-
-var month=document.getElementById("month");
-
-var day=document.getElementById("day");
-
-for(var y=2026;y>=1960;y--){
-
-var op=document.createElement("option");
-
-op.value=y;
-
-op.text=y+"年";
-
-year.appendChild(op);
-
-}
-
-for(var m=1;m<=12;m++){
-
-var opm=document.createElement("option");
-
-opm.value=m;
-
-opm.text=m+"月";
-
-month.appendChild(opm);
-
-}
-
-updateDay();
-
-year.onchange=updateDay;
-
-month.onchange=updateDay;
-
-}
-
-function updateDay(){
-
-var month=document.getElementById("month").value;
-
-var day=document.getElementById("day");
-
-day.innerHTML="<option value=''>日期</option>";
-
-var max=31;
-
-if(month==4||month==6||month==9||month==11){
-
-max=30;
-
-}
-
-if(month==2){
-
-max=28;
-
-}
-
-for(var d=1;d<=max;d++){
-
-var opd=document.createElement("option");
-
-opd.value=d;
-
-opd.text=d+"日";
-
-day.appendChild(opd);
-
-}
-
-}
-
-initDate();
-</script>
+    initDate();
+  </script>
 </body>
 </html>
