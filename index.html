@@ -117,7 +117,21 @@
 
       <div class="panel">
         <div class="panel-title">请输入你的生日</div>
-        <input type="date" id="birthday">
+       <div class="date-row">
+
+<select id="year">
+<option value="">年份</option>
+</select>
+
+<select id="month">
+<option value="">月份</option>
+</select>
+
+<select id="day">
+<option value="">日期</option>
+</select>
+
+</div>
       </div>
 
       <button onclick="goResult()">查看我的赚钱体质</button>
@@ -134,14 +148,108 @@
 
   <script>
     function goResult() {
-      var birthday = document.getElementById("birthday").value;
-      if (!birthday) {
-        alert("请选择生日");
-        return;
-      }
+
+var year=document.getElementById("year").value;
+
+var month=document.getElementById("month").value;
+
+var day=document.getElementById("day").value;
+
+if(!year || !month || !day){
+
+alert("请选择完整生日");
+
+return;
+
+}
+
+var birthday=year+"-"+month+"-"+day;
+
+localStorage.setItem("birthday", birthday);
+
+window.location.href="result.html";
+
+}
       localStorage.setItem("birthday", birthday);
       window.location.href = "result.html";
     }
-  </script>
+  function initDate(){
+
+var year=document.getElementById("year");
+
+var month=document.getElementById("month");
+
+var day=document.getElementById("day");
+
+for(var y=2026;y>=1960;y--){
+
+var op=document.createElement("option");
+
+op.value=y;
+
+op.text=y+"年";
+
+year.appendChild(op);
+
+}
+
+for(var m=1;m<=12;m++){
+
+var opm=document.createElement("option");
+
+opm.value=m;
+
+opm.text=m+"月";
+
+month.appendChild(opm);
+
+}
+
+updateDay();
+
+year.onchange=updateDay;
+
+month.onchange=updateDay;
+
+}
+
+function updateDay(){
+
+var month=document.getElementById("month").value;
+
+var day=document.getElementById("day");
+
+day.innerHTML="<option value=''>日期</option>";
+
+var max=31;
+
+if(month==4||month==6||month==9||month==11){
+
+max=30;
+
+}
+
+if(month==2){
+
+max=28;
+
+}
+
+for(var d=1;d<=max;d++){
+
+var opd=document.createElement("option");
+
+opd.value=d;
+
+opd.text=d+"日";
+
+day.appendChild(opd);
+
+}
+
+}
+
+initDate();
+</script>
 </body>
 </html>
