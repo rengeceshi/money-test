@@ -1,156 +1,77 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>赚钱人格结果</title>
+<title>赚钱人格报告</title>
 
-<style>
-
-body{
-font-family:Arial;
-background:#0f172a;
-color:white;
-padding:20px;
-text-align:center;
-}
-
-.card{
-
-background:white;
-color:black;
-padding:25px;
-border-radius:12px;
-max-width:420px;
-margin:auto;
-
-}
-
-.title{
-
-font-size:24px;
-font-weight:bold;
-margin-bottom:10px;
-
-}
-
-.type{
-
-font-size:28px;
-color:#f59e0b;
-font-weight:bold;
-margin-bottom:15px;
-
-}
-
-.block{
-
-margin-top:20px;
-text-align:left;
-
-}
-
-.block h3{
-
-margin-bottom:6px;
-
-}
-
-.followBox{
-
-background:#111827;
-color:white;
-padding:20px;
-border-radius:10px;
-margin-top:25px;
-
-}
-
-.followBtn{
-
-background:#f59e0b;
-border:none;
-padding:15px;
-width:100%;
-color:white;
-font-size:18px;
-border-radius:8px;
-margin-top:15px;
-
-}
-
-.red{
-
-color:#ef4444;
-margin-top:15px;
-
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="card">
+<div class="container">
 
-<div class="title">
+<h1>
+
 你的赚钱人格是
-</div>
 
-<div class="type">
+</h1>
+
+<div class="resultType" id="type">
+
 稳定积累型
+
 </div>
 
-<div class="block">
+<div class="card">
 
 <h3>赚钱优势</h3>
 
-<p>
-适合长期积累型赚钱<br>
-耐心强<br>
-执行稳定<br>
-适合复利型收入
+<p id="desc">
+
+适合长期稳定赚钱
+
 </p>
 
 </div>
 
-<div class="block">
+<div class="card">
 
 <h3>容易失败原因</h3>
 
-<p>
-过于保守<br>
-错过机会<br>
-行动不够快
+<p id="fail">
+
+容易保守错失机会
+
 </p>
 
 </div>
 
-<div class="block">
+<div class="card">
 
 <h3>适合副业方向</h3>
 
-<p>
+<p id="job">
 
-知识类内容<br>
-长期项目<br>
-稳定副业<br>
+长期副业、内容积累
 
 </p>
 
 </div>
 
-<div class="block">
+<div class="card">
 
 <h3>赚钱关键词</h3>
 
-<p>
+<p id="key">
 
-积累<br>
-稳定<br>
-长期主义
+稳定、积累、复利
 
 </p>
 
@@ -159,18 +80,28 @@ margin-top:15px;
 <div class="followBox">
 
 <h2>
+
 专属赚钱建议
+
 </h2>
 
 <p>
 
-你的赚钱人格更适合稳定型赚钱路线。
+你的赚钱人格适合长期积累型赚钱。
 
 如果你想知道：
 
+<br><br>
+
 适合你的副业方向  
+<br>
+
 适合你的赚钱路径  
+<br>
+
 适合你的起步方式  
+
+<br><br>
 
 可以关注领取完整建议。
 
@@ -182,14 +113,14 @@ margin-top:15px;
 
 </button>
 
-<p class="red">
+<p class="followTip">
 
 关注后评论：测试  
 我发你赚钱路径分析
 
 </p>
 
-<p style="margin-top:10px;font-size:13px;color:#bbb;">
+<p class="red">
 
 每天分享普通人赚钱方式
 
@@ -198,6 +129,20 @@ margin-top:15px;
 </div>
 
 </div>
+
+<script>
+
+document.getElementById("type").innerText=localStorage.getItem("type");
+
+document.getElementById("desc").innerText=localStorage.getItem("desc");
+
+document.getElementById("fail").innerText=localStorage.getItem("fail");
+
+document.getElementById("job").innerText=localStorage.getItem("job");
+
+document.getElementById("key").innerText=localStorage.getItem("key");
+
+</script>
 
 </body>
 
