@@ -7,10 +7,7 @@
     content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
   />
   <title>你的赚钱思维类型测试</title>
-  <meta
-    name="description"
-    content="测一测你更适合哪一种赚钱方式，找到更适合自己的方向。"
-  />
+  <meta name="description" content="测一测你更适合哪一种赚钱方式，找到更适合自己的方向。" />
   <style>
     * {
       box-sizing: border-box;
@@ -20,8 +17,8 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: #f6f7fb;
-      color: #1f2937;
+      background: #f3f5f9;
+      color: #111827;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
         "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     }
@@ -30,36 +27,36 @@
       min-height: 100vh;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    button {
+    button, input, textarea {
       font-family: inherit;
     }
 
-    .page {
-      max-width: 760px;
+    .container {
+      max-width: 720px;
       margin: 0 auto;
-      padding: 14px 12px 30px;
+      padding: 16px 14px 28px;
+    }
+
+    .hidden {
+      display: none !important;
     }
 
     .card {
       background: #ffffff;
       border-radius: 24px;
-      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
       overflow: hidden;
     }
 
+    /* 首页 */
     .hero {
-      padding: 26px 18px 18px;
+      padding: 28px 18px 20px;
       background:
-        radial-gradient(circle at top right, rgba(255, 210, 160, 0.38), transparent 34%),
-        linear-gradient(135deg, #fff8f1 0%, #ffffff 54%, #fff4f5 100%);
+        radial-gradient(circle at top right, rgba(255, 211, 153, 0.45), transparent 34%),
+        linear-gradient(135deg, #fff8ef 0%, #ffffff 58%, #fff6f7 100%);
     }
 
-    .tag {
+    .hero-tag {
       display: inline-flex;
       align-items: center;
       padding: 6px 12px;
@@ -71,80 +68,76 @@
       margin-bottom: 14px;
     }
 
-    .hero h1 {
+    .hero-title {
       margin: 0 0 10px;
-      font-size: 29px;
-      line-height: 1.22;
-      letter-spacing: -0.02em;
-      color: #111827;
+      font-size: 30px;
+      line-height: 1.2;
       font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.02em;
     }
 
-    .hero p {
+    .hero-desc {
       margin: 0;
-      color: #4b5563;
       font-size: 15px;
       line-height: 1.9;
+      color: #4b5563;
     }
 
-    .hero strong {
+    .hero-desc strong {
       color: #111827;
     }
 
-    .body {
-      padding: 18px 16px 24px;
+    .section {
+      padding: 18px 16px 22px;
     }
 
     .intro-box {
-      background: #f9fafb;
-      border: 1px solid #eef2f7;
+      background: #f8fafc;
+      border: 1px solid #e5edf5;
       border-radius: 18px;
-      padding: 14px 14px;
-      margin-bottom: 16px;
-      color: #4b5563;
+      padding: 14px;
       font-size: 14px;
-      line-height: 1.85;
+      line-height: 1.9;
+      color: #475569;
+      margin-bottom: 14px;
     }
 
-    .intro-box b {
-      color: #111827;
-    }
-
-    .point-list {
+    .feature-list {
       display: grid;
       gap: 10px;
       margin-bottom: 18px;
     }
 
-    .point-item {
+    .feature-item {
       display: flex;
       gap: 10px;
       align-items: flex-start;
       background: #fff;
-      border: 1px solid #eef2f7;
+      border: 1px solid #e8eef5;
       border-radius: 16px;
-      padding: 12px 12px;
+      padding: 12px;
     }
 
-    .point-dot {
+    .feature-num {
       width: 24px;
       height: 24px;
-      flex: 0 0 24px;
       border-radius: 999px;
-      background: #fff7ed;
-      color: #ea580c;
+      flex: 0 0 24px;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: #fff7ed;
+      color: #ea580c;
       font-size: 12px;
       font-weight: 800;
       margin-top: 1px;
     }
 
-    .point-item div {
-      color: #374151;
+    .feature-text {
       font-size: 14px;
       line-height: 1.8;
+      color: #374151;
     }
 
     .btn {
@@ -163,79 +156,74 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #fb923c, #f97316);
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(249, 115, 22, 0.22);
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(245, 158, 11, 0.24);
     }
 
     .btn-dark {
-      background: #111827;
-      color: #fff;
-      margin-top: 12px;
+      background: #0f172a;
+      color: #ffffff;
     }
 
     .btn-light {
-      background: #f3f4f6;
+      background: #eef2f7;
       color: #111827;
-      margin-top: 12px;
     }
 
-    .note {
+    .center-note {
       margin-top: 14px;
       text-align: center;
-      color: #9ca3af;
+      color: #94a3b8;
       font-size: 12px;
       line-height: 1.8;
     }
 
-    .hidden {
-      display: none !important;
-    }
-
+    /* 测试页 */
     .quiz-wrap {
       padding: 18px 16px 22px;
     }
 
-    .progress-top {
+    .progress-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
       margin-bottom: 8px;
-      color: #6b7280;
+      color: #64748b;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .progress-bar {
+      width: 100%;
       height: 10px;
-      background: #eceff3;
+      background: #e9eef5;
       border-radius: 999px;
       overflow: hidden;
       margin-bottom: 18px;
     }
 
-    .progress-bar-inner {
+    .progress-fill {
       height: 100%;
       width: 0;
-      background: linear-gradient(90deg, #fb923c, #f97316);
       border-radius: 999px;
+      background: linear-gradient(90deg, #fbbf24, #f59e0b);
       transition: width 0.25s ease;
     }
 
-    .question-card {
-      border: 1px solid #eef2f7;
+    .question-box {
       background: #fff;
+      border: 1px solid #e8eef5;
       border-radius: 20px;
       padding: 18px 14px;
-      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
     }
 
     .question-title {
       margin: 0 0 16px;
-      color: #111827;
       font-size: 20px;
       line-height: 1.65;
+      color: #0f172a;
       font-weight: 900;
     }
 
@@ -248,7 +236,7 @@
       width: 100%;
       text-align: left;
       border: 1px solid #e5e7eb;
-      background: #fff;
+      background: #ffffff;
       color: #1f2937;
       border-radius: 16px;
       padding: 15px 14px;
@@ -259,124 +247,158 @@
     }
 
     .option-btn:hover {
-      background: #fffaf5;
-      border-color: #fdba74;
+      background: #fffaf2;
+      border-color: #fbbf24;
     }
 
     .option-btn:active {
       transform: scale(0.99);
     }
 
-    .result-top {
-      padding: 24px 18px 16px;
-      text-align: center;
-      background:
-        radial-gradient(circle at top right, rgba(255, 210, 160, 0.42), transparent 35%),
-        linear-gradient(135deg, #fff8f1 0%, #ffffff 58%, #fff4f5 100%);
+    /* 结果页 */
+    .result-wrap {
+      padding: 0;
+      overflow: hidden;
     }
 
-    .result-mini-tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 14px;
-      border-radius: 999px;
-      background: #ffedd5;
-      color: #9a3412;
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 12px;
+    .result-head {
+      padding: 22px 16px 10px;
+      background: #f3f5f9;
     }
 
-    .result-title {
-      margin: 0;
-      color: #111827;
-      font-size: 30px;
-      line-height: 1.25;
-      font-weight: 900;
-    }
-
-    .result-desc {
-      margin: 12px auto 0;
-      color: #4b5563;
-      font-size: 15px;
-      line-height: 1.95;
-      max-width: 560px;
-    }
-
-    .result-body {
-      padding: 18px 16px 24px;
-    }
-
-    .section-card {
-      background: #f9fafb;
-      border: 1px solid #eef2f7;
-      border-radius: 18px;
-      padding: 15px 14px;
-      margin-bottom: 14px;
-    }
-
-    .section-card h3 {
-      margin: 0 0 10px;
-      color: #111827;
-      font-size: 17px;
-      line-height: 1.5;
-    }
-
-    .section-card ul {
-      margin: 0;
-      padding-left: 20px;
-      color: #374151;
-      font-size: 14px;
-      line-height: 1.9;
-    }
-
-    .tip-box {
-      border-radius: 18px;
-      padding: 18px 15px;
-      background: linear-gradient(135deg, #111827, #1f2937);
-      color: #fff;
-      margin-top: 18px;
-    }
-
-    .tip-box h3 {
-      margin: 0 0 10px;
+    .result-title-top {
+      margin: 0 0 14px;
       font-size: 18px;
-      line-height: 1.55;
+      line-height: 1.5;
+      font-weight: 900;
+      color: #0f172a;
     }
 
-    .tip-box p {
+    .result-type-box {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #ffffff;
+      border-radius: 16px;
+      text-align: center;
+      padding: 18px 14px;
+      font-size: 18px;
+      font-weight: 900;
+      box-shadow: 0 10px 20px rgba(245, 158, 11, 0.22);
+    }
+
+    .result-content {
+      padding: 4px 14px 20px;
+      background: #f3f5f9;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 16px 14px;
+      margin-top: 14px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+    }
+
+    .info-card-title {
+      margin: 0 0 10px;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 900;
+      color: #111827;
+    }
+
+    .info-card-text {
       margin: 0;
-      color: rgba(255, 255, 255, 0.9);
       font-size: 14px;
       line-height: 1.9;
+      color: #374151;
     }
 
-    .tip-box .small {
-      display: block;
-      margin-top: 10px;
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 12px;
-      line-height: 1.8;
+    .big-guide {
+      margin-top: 14px;
+      background: linear-gradient(180deg, #08142f 0%, #0c1835 100%);
+      color: #ffffff;
+      border-radius: 22px;
+      padding: 20px 14px 18px;
+      box-shadow: 0 10px 24px rgba(6, 17, 40, 0.28);
+    }
+
+    .big-guide-title {
+      margin: 0 0 12px;
+      font-size: 18px;
+      line-height: 1.5;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .big-guide-text {
+      margin: 0;
+      text-align: center;
+      font-size: 14px;
+      line-height: 2;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .big-guide-list {
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+      font-size: 14px;
+      line-height: 2;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .big-guide-sub {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .guide-btn {
+      margin-top: 16px;
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(245, 158, 11, 0.25);
+    }
+
+    .guide-btn:active {
+      transform: scale(0.985);
+    }
+
+    .result-actions {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
     }
 
     .bottom-note {
-      margin-top: 16px;
+      margin-top: 12px;
       text-align: center;
-      color: #9ca3af;
+      color: #94a3b8;
       font-size: 12px;
       line-height: 1.8;
     }
 
     @media (max-width: 480px) {
-      .page {
-        padding: 10px 10px 22px;
+      .container {
+        padding: 10px 10px 20px;
       }
 
       .hero {
-        padding: 22px 15px 16px;
+        padding: 24px 15px 18px;
       }
 
-      .hero h1 {
+      .hero-title {
         font-size: 25px;
       }
 
@@ -384,20 +406,25 @@
         font-size: 18px;
       }
 
-      .result-title {
-        font-size: 26px;
+      .result-title-top {
+        font-size: 16px;
+      }
+
+      .result-type-box {
+        font-size: 17px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
+  <div class="container">
+
     <!-- 首页 -->
     <section id="homeView" class="card">
       <div class="hero">
-        <div class="tag">普通人更适合的方向测试</div>
-        <h1>你的赚钱思维类型测试</h1>
-        <p>
+        <div class="hero-tag">普通人更适合的方向测试</div>
+        <h1 class="hero-title">你的赚钱思维类型测试</h1>
+        <p class="hero-desc">
           为什么有的人很努力，却一直赚不到钱？<br />
           <strong>很多时候，不是不努力，而是方法和方向不适合自己。</strong><br />
           有人适合行动赚钱，有人适合认知赚钱，有人适合长期积累。<br />
@@ -405,31 +432,31 @@
         </p>
       </div>
 
-      <div class="body">
+      <div class="section">
         <div class="intro-box">
-          <b>测试说明：</b><br />
-          共 12 题，按第一直觉选择即可，整体约 1 分钟。<br />
+          <strong>测试说明：</strong><br />
+          共 12 题，按第一直觉选择即可，耗时约 1 分钟。<br />
           结果更适合用来做方向参考，帮助你少走弯路。
         </div>
 
-        <div class="point-list">
-          <div class="point-item">
-            <div class="point-dot">1</div>
-            <div>适合抖音、小红书、微信内打开，手机浏览更顺手。</div>
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-num">1</div>
+            <div class="feature-text">适合抖音、小红书、微信内打开，手机浏览更顺手。</div>
           </div>
-          <div class="point-item">
-            <div class="point-dot">2</div>
-            <div>页面风格偏“成长测试”，不会太像硬营销落地页。</div>
+          <div class="feature-item">
+            <div class="feature-num">2</div>
+            <div class="feature-text">页面整体更像成长测试，不会太像硬营销页。</div>
           </div>
-          <div class="point-item">
-            <div class="point-dot">3</div>
-            <div>结果页会给出基础建议，更容易让用户愿意停留和转发。</div>
+          <div class="feature-item">
+            <div class="feature-num">3</div>
+            <div class="feature-text">结果页会直接给出基础建议，更容易让用户看完并保存。</div>
           </div>
         </div>
 
         <button id="startBtn" class="btn btn-primary">开始测试</button>
 
-        <div class="note">
+        <div class="center-note">
           建议按第一反应作答，结果会更接近你的真实倾向。
         </div>
       </div>
@@ -438,15 +465,16 @@
     <!-- 测试页 -->
     <section id="quizView" class="card hidden">
       <div class="quiz-wrap">
-        <div class="progress-top">
+        <div class="progress-row">
           <span id="progressText">第 1 / 12 题</span>
           <span id="progressPercent">8%</span>
         </div>
+
         <div class="progress-bar">
-          <div id="progressBar" class="progress-bar-inner"></div>
+          <div id="progressFill" class="progress-fill"></div>
         </div>
 
-        <div class="question-card">
+        <div class="question-box">
           <h2 id="questionTitle" class="question-title"></h2>
           <div id="optionsBox" class="options"></div>
         </div>
@@ -455,45 +483,56 @@
 
     <!-- 结果页 -->
     <section id="resultView" class="card hidden">
-      <div class="result-top">
-        <div class="result-mini-tag">测试结果</div>
-        <h2 id="resultTitle" class="result-title"></h2>
-        <p id="resultDesc" class="result-desc"></p>
-      </div>
-
-      <div class="result-body">
-        <div class="section-card">
-          <h3>你的核心特点</h3>
-          <ul id="traitsList"></ul>
+      <div class="result-wrap">
+        <div class="result-head">
+          <h2 class="result-title-top">你的赚钱思维类型是</h2>
+          <div id="resultTypeBox" class="result-type-box">稳定积累型</div>
         </div>
 
-        <div class="section-card">
-          <h3>更适合你的方向建议</h3>
-          <ul id="adviceList"></ul>
-        </div>
+        <div class="result-content">
+          <div class="info-card">
+            <h3 class="info-card-title">你的赚钱优势</h3>
+            <p id="advantageText" class="info-card-text"></p>
+          </div>
 
-        <div class="section-card">
-          <h3>给你的成长提醒</h3>
-          <ul id="growthList"></ul>
-        </div>
+          <div class="info-card">
+            <h3 class="info-card-title">需要注意的地方</h3>
+            <p id="riskText" class="info-card-text"></p>
+          </div>
 
-        <div class="tip-box">
-          <h3>想继续往下看，可以保存结果</h3>
-          <p>
-            把这页截图保存，后面选副业、做内容、做方向判断时都能拿出来对照。<br />
-            如果你想看更细一点的建议，可以回到主页继续关注后续内容。
-          </p>
-          <span class="small">这句写得比较中性，适合抖音、小红书、微信共同使用。</span>
-        </div>
+          <div class="info-card">
+            <h3 class="info-card-title">更适合你的方向</h3>
+            <p id="directionText" class="info-card-text"></p>
+          </div>
 
-        <button id="retryBtn" class="btn btn-dark">重新测试</button>
-        <button id="copyBtn" class="btn btn-light">复制结果文案</button>
+          <div class="info-card">
+            <h3 class="info-card-title">你的成长关键词</h3>
+            <p id="keywordsText" class="info-card-text"></p>
+          </div>
 
-        <div class="bottom-note">
-          结果仅作为方向参考，真正重要的是找到适合自己的长期路径。
+          <div class="big-guide">
+            <h3 class="big-guide-title">给你的方向建议</h3>
+            <p id="guideText" class="big-guide-text"></p>
+            <ul id="guideList" class="big-guide-list"></ul>
+            <div class="big-guide-sub">
+              可以截图保存结果，后面选择方向时对照参考。<br />
+              想看更详细的适合方向，也可以关注后查看后续分享。
+            </div>
+            <button id="copyBtn" class="guide-btn">复制结果文案</button>
+          </div>
+
+          <div class="result-actions">
+            <button id="retryBtn" class="btn btn-dark">重新测试</button>
+            <button id="saveBtn" class="btn btn-light">截图保存结果</button>
+          </div>
+
+          <div class="bottom-note">
+            结果仅作为方向参考，真正重要的是找到适合自己的长期路径。
+          </div>
         </div>
       </div>
     </section>
+
   </div>
 
   <script>
@@ -610,79 +649,55 @@
 
     const resultMap = {
       action: {
-        title: "行动执行型",
-        desc: "你更适合靠行动力和执行力推动事情前进。比起想很久再开始，你往往更适合先做起来，在行动中调整方向。",
-        traits: [
-          "做事不太喜欢拖，愿意先上手",
-          "更喜欢有反馈、能落地的事情",
-          "适合从执行中找感觉，而不是一直空想"
-        ],
-        advice: [
-          "适合从执行型、服务型、接单型、短周期反馈强的事情开始",
-          "先用小结果建立信心，再逐步升级自己的方法和认知",
-          "别一开始就选太重、太慢、太复杂的项目"
-        ],
-        growth: [
-          "你的优势是行动快，但方向判断也要跟上",
-          "多复盘几次，你会比别人进步更快",
-          "别因为着急看到结果，就忽略长期积累"
+        typeName: "行动执行型",
+        advantage: "更适合通过行动力和执行力推动结果，不容易停留在空想阶段。",
+        risk: "有时会因为太想尽快看到结果，而忽略方向判断和长期积累。",
+        direction: "执行型副业、服务型项目、接单类工作、短周期反馈较强的方向。",
+        keywords: "行动、执行、反馈、落地",
+        guideText: "你的测试结果更偏向行动执行型。这类人通常更适合先做起来，在行动中逐步找到更适合自己的方向。",
+        guideList: [
+          "先从能快速上手的事情开始",
+          "边做边复盘，比只想不做更适合你",
+          "先拿到小结果，再逐步升级方法"
         ]
       },
       strategy: {
-        title: "认知策略型",
-        desc: "你更适合靠思考、内容、方法和认知去赚钱。你做事情不是不想动，而是更需要先把方向想清楚，再持续推进。",
-        traits: [
-          "喜欢分析问题，也愿意研究规律",
-          "对方法和逻辑更敏感",
-          "更适合能沉淀思路和内容的事情"
-        ],
-        advice: [
-          "适合内容表达、知识整理、信息差、方法型方向",
-          "先找到你能长期讲、长期做的主题",
-          "不要只研究不行动，边做边调才会出结果"
-        ],
-        growth: [
-          "你最大的风险通常不是做错，而是拖太久",
-          "复杂问题拆小以后，会更容易落地",
-          "你更适合用脑力和结构感去放大价值"
+        typeName: "认知策略型",
+        advantage: "更适合通过思考、方法、内容和认知来放大价值，不适合盲目蛮干。",
+        risk: "有时会因为过度研究、想得太清楚，导致开始得太晚。",
+        direction: "内容表达、知识整理、信息差方向、策略型副业、方法型输出。",
+        keywords: "认知、策略、方法、思考",
+        guideText: "你的测试结果更偏向认知策略型。这类人通常更适合先把方向想清楚，再通过内容、方法和结构慢慢放大。",
+        guideList: [
+          "找到一个能长期讲、长期做的主题",
+          "不要只研究不行动，边做边调更重要",
+          "你的优势是方法感，不是纯体力消耗"
         ]
       },
       stable: {
-        title: "稳定积累型",
-        desc: "你更适合做长期积累型的事情。你不一定是最快看到结果的人，但往往更容易走得稳、走得久，后劲会比较强。",
-        traits: [
-          "重视安全感，不喜欢大起大落",
-          "一旦决定做某件事，通常更能坚持",
-          "适合可持续、有复利空间的路径"
-        ],
-        advice: [
-          "适合长期项目、技能积累、稳步增长型方向",
-          "先把节奏稳住，再考虑怎么放大",
-          "不要总被外面的快节奏带乱自己的判断"
-        ],
-        growth: [
-          "你的强项是持续，不是冲刺",
-          "慢一点没有问题，关键是一直在往前",
-          "你适合把时间变成优势"
+        typeName: "稳定积累型",
+        advantage: "适合通过持续积累慢慢提升收入，而不是依赖短期爆发。",
+        risk: "有时会因为过于求稳而错过一些机会，可以适当提高尝试度。",
+        direction: "长期副业、内容积累、技能型副业、稳定增长类方向。",
+        keywords: "稳定、积累、耐心、复利",
+        guideText: "你的测试结果属于稳定积累型。这类人通常更适合做可以长期坚持的事情，而不是短期爆发型项目。当你找到适合自己的节奏后，收入往往是慢慢增长，而不是突然暴涨。",
+        guideList: [
+          "优先选择能长期做的副业",
+          "优先做可以积累经验的方向",
+          "不建议频繁更换方向"
         ]
       },
       opportunity: {
-        title: "机会探索型",
-        desc: "你对新机会、新趋势通常比较敏感，适合在变化里寻找空间。但真正让你跑出来的关键，不是做很多，而是学会筛选。",
-        traits: [
-          "愿意尝试，不容易被旧路径限制",
-          "对新平台、新玩法更有兴趣",
-          "容易被机会感带动行动"
-        ],
-        advice: [
-          "适合关注趋势型方向、新平台、新玩法和信息变化",
-          "做任何事情前先看风险，不要只看热度",
-          "少做几个，做深一点，结果会更好"
-        ],
-        growth: [
-          "你最大的风险不是没能力，而是容易分散",
-          "学会筛选，比盲目冲更重要",
-          "抓机会是你的优势，守节奏会让优势更稳"
+        typeName: "机会探索型",
+        advantage: "对新机会、新趋势通常更敏感，容易在变化里找到空间。",
+        risk: "有时会因为关注点太多而分散精力，导致什么都想试却做不深。",
+        direction: "新平台玩法、趋势型方向、信息变化快的项目、探索型副业。",
+        keywords: "机会、变化、尝试、趋势",
+        guideText: "你的测试结果更偏向机会探索型。这类人通常更适合在变化中寻找空间，但真正让你跑出来的关键，不是做很多，而是学会筛选。",
+        guideList: [
+          "少做几个方向，多做深一点",
+          "先判断风险，再决定要不要冲",
+          "抓机会是优势，守节奏更重要"
         ]
       }
     };
@@ -693,19 +708,22 @@
 
     const startBtn = document.getElementById("startBtn");
     const retryBtn = document.getElementById("retryBtn");
+    const saveBtn = document.getElementById("saveBtn");
     const copyBtn = document.getElementById("copyBtn");
 
     const progressText = document.getElementById("progressText");
     const progressPercent = document.getElementById("progressPercent");
-    const progressBar = document.getElementById("progressBar");
+    const progressFill = document.getElementById("progressFill");
     const questionTitle = document.getElementById("questionTitle");
     const optionsBox = document.getElementById("optionsBox");
 
-    const resultTitle = document.getElementById("resultTitle");
-    const resultDesc = document.getElementById("resultDesc");
-    const traitsList = document.getElementById("traitsList");
-    const adviceList = document.getElementById("adviceList");
-    const growthList = document.getElementById("growthList");
+    const resultTypeBox = document.getElementById("resultTypeBox");
+    const advantageText = document.getElementById("advantageText");
+    const riskText = document.getElementById("riskText");
+    const directionText = document.getElementById("directionText");
+    const keywordsText = document.getElementById("keywordsText");
+    const guideText = document.getElementById("guideText");
+    const guideList = document.getElementById("guideList");
 
     let currentIndex = 0;
     let score = {
@@ -747,7 +765,7 @@
 
       progressText.textContent = `第 ${current} / ${total} 题`;
       progressPercent.textContent = `${percent}%`;
-      progressBar.style.width = `${percent}%`;
+      progressFill.style.width = `${percent}%`;
 
       questionTitle.textContent = q.title;
       optionsBox.innerHTML = "";
@@ -763,6 +781,7 @@
 
     function selectOption(type) {
       score[type] += 1;
+
       if (currentIndex < questions.length - 1) {
         currentIndex += 1;
         renderQuestion();
@@ -774,42 +793,47 @@
     function getFinalType() {
       const entries = Object.entries(score).sort((a, b) => b[1] - a[1]);
       const maxScore = entries[0][1];
-      const sameScore = entries.filter(item => item[1] === maxScore).map(item => item[0]);
+      const tied = entries.filter(item => item[1] === maxScore).map(item => item[0]);
 
-      if (sameScore.length === 1) return sameScore[0];
+      if (tied.length === 1) return tied[0];
 
-      // 同分时优先给更稳的结果，减少用户觉得“太飘”
       const priority = ["stable", "strategy", "action", "opportunity"];
       for (const p of priority) {
-        if (sameScore.includes(p)) return p;
+        if (tied.includes(p)) return p;
       }
+
       return entries[0][0];
     }
 
-    function renderUl(ulEl, arr) {
-      ulEl.innerHTML = "";
-      arr.forEach((text) => {
+    function renderGuideList(list) {
+      guideList.innerHTML = "";
+      list.forEach((item) => {
         const li = document.createElement("li");
-        li.textContent = text;
-        ulEl.appendChild(li);
+        li.textContent = item;
+        guideList.appendChild(li);
       });
     }
 
     function buildCopyText(data) {
       return [
         "我的测试结果：",
-        data.title,
+        data.typeName,
         "",
-        data.desc,
+        "你的赚钱优势：",
+        data.advantage,
         "",
-        "核心特点：",
-        ...data.traits.map((item, i) => `${i + 1}. ${item}`),
+        "需要注意的地方：",
+        data.risk,
         "",
-        "方向建议：",
-        ...data.advice.map((item, i) => `${i + 1}. ${item}`),
+        "更适合你的方向：",
+        data.direction,
         "",
-        "成长提醒：",
-        ...data.growth.map((item, i) => `${i + 1}. ${item}`)
+        "你的成长关键词：",
+        data.keywords,
+        "",
+        "给你的方向建议：",
+        data.guideText,
+        ...data.guideList.map((item, index) => `${index + 1}. ${item}`)
       ].join("\n");
     }
 
@@ -829,10 +853,9 @@
         textarea.select();
 
         try {
-          const success = document.execCommand("copy");
+          const ok = document.execCommand("copy");
           document.body.removeChild(textarea);
-          if (success) resolve();
-          else reject(new Error("copy failed"));
+          ok ? resolve() : reject(new Error("copy failed"));
         } catch (err) {
           document.body.removeChild(textarea);
           reject(err);
@@ -844,11 +867,13 @@
       const finalType = getFinalType();
       const data = resultMap[finalType];
 
-      resultTitle.textContent = data.title;
-      resultDesc.textContent = data.desc;
-      renderUl(traitsList, data.traits);
-      renderUl(adviceList, data.advice);
-      renderUl(growthList, data.growth);
+      resultTypeBox.textContent = data.typeName;
+      advantageText.textContent = data.advantage;
+      riskText.textContent = data.risk;
+      directionText.textContent = data.direction;
+      keywordsText.textContent = data.keywords;
+      guideText.textContent = data.guideText;
+      renderGuideList(data.guideList);
 
       copyBtn.setAttribute("data-copy", buildCopyText(data));
       showView(resultView);
@@ -857,11 +882,15 @@
     startBtn.addEventListener("click", startQuiz);
     retryBtn.addEventListener("click", startQuiz);
 
+    saveBtn.addEventListener("click", () => {
+      alert("请直接截图保存当前结果页。");
+    });
+
     copyBtn.addEventListener("click", async () => {
       const text = copyBtn.getAttribute("data-copy") || "";
       try {
         await copyText(text);
-        alert("结果文案已复制，可以直接发给朋友或保存。");
+        alert("结果文案已复制，可以直接发给别人或保存。");
       } catch (e) {
         alert("复制失败，请直接截图保存结果。");
       }
