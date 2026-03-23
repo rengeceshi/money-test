@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+content="width=device-width,initial-scale=1">
 
 <title>赚钱思维类型测试</title>
 
@@ -14,9 +14,9 @@ content="width=device-width, initial-scale=1.0">
 
 body{
 
-font-family:Arial;
+font-family:-apple-system,BlinkMacSystemFont,"PingFang SC";
 
-background:#f4f6fb;
+background:#f3f5f9;
 
 margin:0;
 
@@ -28,15 +28,15 @@ padding:20px;
 
 background:white;
 
-max-width:600px;
+max-width:650px;
 
 margin:auto;
 
-padding:20px;
+padding:22px;
 
-border-radius:20px;
+border-radius:22px;
 
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
 
 }
 
@@ -44,39 +44,51 @@ h1{
 
 font-size:26px;
 
+margin-bottom:10px;
+
+}
+
+.desc{
+
+color:#555;
+
+line-height:1.7;
+
+margin-bottom:20px;
+
 }
 
 button{
 
 width:100%;
 
-padding:15px;
+padding:16px;
 
 border:none;
 
-border-radius:12px;
+border-radius:14px;
 
 background:#f59e0b;
 
 color:white;
 
-font-size:16px;
+font-size:17px;
 
-font-weight:bold;
+font-weight:800;
 
 cursor:pointer;
 
-margin-top:15px;
+margin-top:10px;
 
 }
 
 .option{
 
-border:1px solid #ddd;
+border:1px solid #e5e7eb;
 
-padding:12px;
+padding:14px;
 
-border-radius:10px;
+border-radius:12px;
 
 margin-top:10px;
 
@@ -87,6 +99,74 @@ cursor:pointer;
 .option:hover{
 
 background:#fff7ed;
+
+border-color:#f59e0b;
+
+}
+
+.progress{
+
+margin-bottom:15px;
+
+color:#777;
+
+font-size:14px;
+
+}
+
+.bar{
+
+height:8px;
+
+background:#eee;
+
+border-radius:100px;
+
+margin-bottom:18px;
+
+overflow:hidden;
+
+}
+
+.bar-inner{
+
+height:100%;
+
+background:#f59e0b;
+
+width:0;
+
+transition:0.3s;
+
+}
+
+.result-box{
+
+background:#0f172a;
+
+color:white;
+
+padding:20px;
+
+border-radius:18px;
+
+margin-top:15px;
+
+line-height:1.8;
+
+}
+
+.light{
+
+background:#eef2f7;
+
+color:black;
+
+}
+
+.hidden{
+
+display:none;
 
 }
 
@@ -100,43 +180,103 @@ background:#fff7ed;
 
 <h1>你的赚钱思维类型测试</h1>
 
-<p>
+<div class="desc">
+
+为什么有的人很努力却赚不到钱？<br>
 
 很多时候不是不努力，而是赚钱方式不适合自己。<br>
 
 测一测看看你更适合哪种赚钱方向。
 
-</p>
+</div>
 
 <button onclick="start()">开始测试</button>
 
 </div>
 
-<div class="card" id="quiz" style="display:none">
+<div class="card hidden" id="quiz">
 
-<h2 id="q"></h2>
+<div class="progress" id="progress"></div>
 
-<div id="opts"></div>
+<div class="bar">
+
+<div class="bar-inner" id="bar"></div>
 
 </div>
 
-<div class="card" id="result" style="display:none">
+<h2 id="question"></h2>
 
-<h2>你的赚钱类型是</h2>
+<div id="options"></div>
+
+</div>
+
+<div class="card hidden" id="result">
+
+<h2>你的赚钱思维类型是</h2>
 
 <h1 id="type"></h1>
 
-<p id="adv"></p>
+<div id="analysis"></div>
+
+<div class="result-box" id="guide"></div>
 
 <button onclick="start()">重新测试</button>
+
+<button class="light" onclick="alert('截图保存即可')">截图保存结果</button>
 
 </div>
 
 <script>
 
-let qs=[
+let questions=[
 
-["你更喜欢哪种赚钱方式？","马上开始","研究方法","长期积累","抓机会"]
+{
+
+q:"当你想增加收入时，你第一反应是？",
+
+a:["马上找能做的副业","研究赚钱逻辑","找稳定方式","看看新机会"]
+
+},
+
+{
+
+q:"你更喜欢哪种赚钱方式？",
+
+a:["做了就有钱","用方法赚钱","慢慢积累","抓趋势"]
+
+},
+
+{
+
+q:"你更擅长什么？",
+
+a:["执行","思考","坚持","尝试"]
+
+},
+
+{
+
+q:"如果一个项目要3个月才赚钱？",
+
+a:["不想等","研究值不值","可以接受","看机会"]
+
+},
+
+{
+
+q:"别人说新项目赚钱你会？",
+
+a:["先试","先分析","看稳定","有兴趣"]
+
+},
+
+{
+
+q:"你更认可哪句话？",
+
+a:["先做再说","方向重要","稳最重要","机会重要"]
+
+}
 
 ];
 
@@ -146,11 +286,15 @@ let score=[0,0,0,0];
 
 function start(){
 
-home.style.display="none";
+i=0;
 
-result.style.display="none";
+score=[0,0,0,0];
 
-quiz.style.display="block";
+home.classList.add("hidden");
+
+result.classList.add("hidden");
+
+quiz.classList.remove("hidden");
 
 next();
 
@@ -158,29 +302,33 @@ next();
 
 function next(){
 
-if(i>=qs.length){
+if(i>=questions.length){
 
-show();
+showResult();
 
 return;
 
 }
 
-q.innerHTML=qs[i][0];
+progress.innerHTML="第 "+(i+1)+" / "+questions.length+" 题";
 
-opts.innerHTML="";
+bar.style.width=((i+1)/questions.length*100)+"%";
 
-for(let j=1;j<=4;j++){
+question.innerHTML=questions[i].q;
 
-let d=document.createElement("div");
+options.innerHTML="";
 
-d.className="option";
+for(let j=0;j<4;j++){
 
-d.innerHTML=qs[i][j];
+let div=document.createElement("div");
 
-d.onclick=function(){
+div.className="option";
 
-score[j-1]++;
+div.innerHTML=questions[i].a[j];
+
+div.onclick=function(){
+
+score[j]++;
 
 i++;
 
@@ -188,25 +336,37 @@ next();
 
 };
 
-opts.appendChild(d);
+options.appendChild(div);
 
 }
 
 }
 
-function show(){
+function showResult(){
 
-quiz.style.display="none";
+quiz.classList.add("hidden");
 
-result.style.display="block";
+result.classList.remove("hidden");
 
 let r=score.indexOf(Math.max(...score));
 
-let types=["行动型","思考型","稳定型","机会型"];
+let data=[
 
-type.innerHTML=types[r];
+["行动执行型","你适合通过执行赚钱，行动力强，适合快速见结果的副业。","建议先做能快速产生收益的事情，再升级方向。"],
 
-adv.innerHTML="适合你的赚钱方式是："+types[r];
+["认知思考型","你适合靠认知赚钱，适合内容、副业、信息差。","建议提升认知和方法，做长期复利。"],
+
+["稳定积累型","你适合长期积累赚钱，耐力强。","适合长期副业和稳定成长方向。"],
+
+["机会探索型","你适合抓机会赚钱，对趋势敏感。","建议少做几个方向，集中做深。"]
+
+];
+
+type.innerHTML=data[r][0];
+
+analysis.innerHTML=data[r][1];
+
+guide.innerHTML=data[r][2]+"<br><br>关注我查看更多普通人赚钱方式。";
 
 }
 
