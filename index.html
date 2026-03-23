@@ -1,110 +1,72 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>赚钱人格测试</title>
 
-<style>
-
-body{
-font-family:Arial;
-background:#0f172a;
-color:white;
-text-align:center;
-padding:30px;
-}
-
-.box{
-background:white;
-color:black;
-padding:25px;
-border-radius:12px;
-max-width:420px;
-margin:auto;
-}
-
-.title{
-font-size:26px;
-font-weight:bold;
-margin-bottom:10px;
-}
-
-.desc{
-color:#555;
-margin-bottom:20px;
-}
-
-input{
-padding:10px;
-margin:5px;
-width:80px;
-border-radius:6px;
-border:1px solid #ccc;
-}
-
-button{
-background:#f59e0b;
-border:none;
-color:white;
-padding:15px;
-width:100%;
-border-radius:8px;
-font-size:18px;
-margin-top:20px;
-cursor:pointer;
-}
-
-.tip{
-margin-top:20px;
-color:#666;
-font-size:14px;
-}
-
-.trust{
-margin-top:15px;
-font-size:13px;
-color:#888;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="box">
+<div class="container">
 
-<div class="title">
+<h1>
+
 普通人其实只有4种赚钱人格
-</div>
 
-<div class="desc">
+</h1>
+
+<p class="desc">
+
 很多人赚不到钱不是不努力<br>
+
 是赚钱方式选错了
+
+</p>
+
+<div class="inputBox">
+
+<input id="year" placeholder="出生年">
+
+<input id="month" placeholder="月">
+
+<input id="day" placeholder="日">
+
 </div>
 
-<p>输入生日查看你适合的赚钱方式</p>
+<button onclick="startTest()" class="testBtn">
 
-<input placeholder="年">
-<input placeholder="月">
-<input placeholder="日">
-
-<button>
 查看我的赚钱人格
+
 </button>
 
-<div class="tip">
+<p class="tips">
+
 ✔ 适合副业人群<br>
+
 ✔ 3秒生成结果<br>
+
 ✔ 已有3000+人测试
-</div>
 
-<div class="trust">
+</p>
+
+<p class="bottomTip">
+
 测试完成可领取赚钱建议
-</div>
+
+</p>
 
 </div>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
