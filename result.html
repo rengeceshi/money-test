@@ -1,207 +1,89 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
+<html lang="zh">
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>赚钱人格测试结果</title>
+<title>赚钱人格结果</title>
 
 <style>
 
-*{box-sizing:border-box;}
-
 body{
-
-margin:0;
-
-font-family:"Microsoft YaHei";
-
-background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
-
-min-height:100vh;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-padding:20px;
-
+font-family:Arial;
+background:#0f172a;
 color:white;
-
+padding:20px;
+text-align:center;
 }
 
 .card{
 
 background:white;
-
-color:#111827;
-
-max-width:460px;
-
-width:100%;
-
-border-radius:24px;
-
-padding:28px;
-
-box-shadow:0 24px 60px rgba(0,0,0,0.28);
+color:black;
+padding:25px;
+border-radius:12px;
+max-width:420px;
+margin:auto;
 
 }
 
-.badge{
+.title{
 
-background:#ecfeff;
-
-color:#0891b2;
-
-display:inline-block;
-
-padding:6px 14px;
-
-border-radius:999px;
-
-font-size:13px;
-
-font-weight:700;
-
-margin-bottom:14px;
-
-}
-
-h2{
-
-margin:0 0 10px;
-
-font-size:26px;
-
-color:#0f172a;
-
-}
-
-.desc{
-
-color:#475569;
-
-font-size:15px;
-
-line-height:1.8;
-
-margin-bottom:16px;
-
-}
-
-.tags{
-
-display:flex;
-
-gap:10px;
-
-margin:14px 0 20px;
-
-}
-
-.tag{
-
-background:#f1f5f9;
-
-padding:8px 14px;
-
-border-radius:999px;
-
-font-size:13px;
-
-font-weight:700;
-
-color:#334155;
-
-}
-
-.box{
-
-background:#f8fafc;
-
-border:1px solid #e2e8f0;
-
-border-radius:18px;
-
-padding:16px;
-
-margin-bottom:16px;
-
-}
-
-.box-title{
-
-font-weight:700;
-
+font-size:24px;
+font-weight:bold;
 margin-bottom:10px;
 
-font-size:15px;
+}
+
+.type{
+
+font-size:28px;
+color:#f59e0b;
+font-weight:bold;
+margin-bottom:15px;
 
 }
 
-.box p{
+.block{
 
-margin:6px 0;
-
-font-size:14px;
-
-color:#475569;
-
-line-height:1.8;
+margin-top:20px;
+text-align:left;
 
 }
 
-.tip{
+.block h3{
 
-text-align:center;
+margin-bottom:6px;
+
+}
+
+.followBox{
+
+background:#111827;
+color:white;
+padding:20px;
+border-radius:10px;
+margin-top:25px;
+
+}
+
+.followBtn{
+
+background:#f59e0b;
+border:none;
+padding:15px;
+width:100%;
+color:white;
+font-size:18px;
+border-radius:8px;
+margin-top:15px;
+
+}
+
+.red{
 
 color:#ef4444;
-
-font-size:14px;
-
-font-weight:700;
-
-margin:18px 0 10px;
-
-}
-
-button{
-
-width:100%;
-
-padding:16px;
-
-border:none;
-
-border-radius:14px;
-
-background:black;
-
-color:white;
-
-font-size:17px;
-
-font-weight:700;
-
-cursor:pointer;
-
-}
-
-.note{
-
-text-align:center;
-
-font-size:13px;
-
-color:#64748b;
-
-margin-top:12px;
+margin-top:15px;
 
 }
 
@@ -213,207 +95,109 @@ margin-top:12px;
 
 <div class="card">
 
-<div class="badge">测试结果已生成</div>
+<div class="title">
+你的赚钱人格是
+</div>
 
-<h2 id="title">赚钱人格分析</h2>
+<div class="type">
+稳定积累型
+</div>
 
-<div class="desc" id="desc">
+<div class="block">
 
-正在分析你的赚钱方向…
+<h3>赚钱优势</h3>
+
+<p>
+适合长期积累型赚钱<br>
+耐心强<br>
+执行稳定<br>
+适合复利型收入
+</p>
 
 </div>
 
-<div class="tags">
+<div class="block">
 
-<div class="tag" id="t1"></div>
+<h3>容易失败原因</h3>
 
-<div class="tag" id="t2"></div>
-
-<div class="tag" id="t3"></div>
-
-</div>
-
-<div class="box">
-
-<div class="box-title">你的基础分析</div>
-
-<p id="analysis"></p>
+<p>
+过于保守<br>
+错过机会<br>
+行动不够快
+</p>
 
 </div>
 
-<div class="box">
+<div class="block">
 
-<div class="box-title">人格计算依据</div>
+<h3>适合副业方向</h3>
 
-<p>✔ 出生数字结构分析</p>
+<p>
 
-<p>✔ 行为倾向模型匹配</p>
-
-<p>✔ 赚钱方式适配逻辑</p>
-
-<p style="font-size:13px;color:#64748b;">
-
-本测试基于行为模型与数字结构分析生成，仅用于方向参考。
+知识类内容<br>
+长期项目<br>
+稳定副业<br>
 
 </p>
 
 </div>
 
-<div class="box">
+<div class="block">
 
-<div class="box-title">你的完整赚钱报告包含</div>
+<h3>赚钱关键词</h3>
 
-<p>✔ 你真正适合的赚钱方式</p>
+<p>
 
-<p>✔ 为什么你努力却赚不到钱</p>
+积累<br>
+稳定<br>
+长期主义
 
-<p>✔ 最适合你的副业方向</p>
-
-<p>✔ 未来6个月赚钱成长路线</p>
-
-<p>✔ 你的隐藏赚钱优势</p>
+</p>
 
 </div>
 
-<div class="tip">
+<div class="followBox">
 
-你的完整赚钱路径已经生成（仅对你开放）
+<h2>
+专属赚钱建议
+</h2>
 
-</div>
+<p>
 
-<div class="note">
+你的赚钱人格更适合稳定型赚钱路线。
 
-产品测试阶段体验价：¥6.9（后续恢复原价）
+如果你想知道：
 
-</div>
+适合你的副业方向  
+适合你的赚钱路径  
+适合你的起步方式  
 
-<button onclick="goComplete()">
+可以关注领取完整建议。
 
-解锁完整赚钱路线 ¥6.9
+</p>
+
+<button class="followBtn">
+
+关注领取赚钱建议
 
 </button>
 
-<div class="note">
+<p class="red">
 
-已有1273人查看完整报告
+关注后评论：测试  
+我发你赚钱路径分析
+
+</p>
+
+<p style="margin-top:10px;font-size:13px;color:#bbb;">
+
+每天分享普通人赚钱方式
+
+</p>
 
 </div>
 
 </div>
-
-<script>
-
-var birthday=localStorage.getItem("birthday");
-
-var score=0;
-
-if(birthday){
-
-var nums=birthday.replace(/-/g,"").split("");
-
-for(var i=0;i<nums.length;i++){
-
-score+=parseInt(nums[i]);
-
-}
-
-}
-
-var type="";
-
-var desc="";
-
-var t1="";
-
-var t2="";
-
-var t3="";
-
-var text="";
-
-if(score<=20){
-
-type="行动赚钱型（执行者）";
-
-desc="你适合通过行动和项目赚钱。";
-
-t1="执行力强";
-
-t2="敢尝试";
-
-t3="行动派";
-
-text="你适合项目、副业、快速试错型赚钱方式。";
-
-}
-
-else if(score<=30){
-
-type="稳定赚钱型（积累者）";
-
-desc="你适合长期复利赚钱。";
-
-t1="稳";
-
-t2="耐力强";
-
-t3="靠谱";
-
-text="你适合长期项目，比如内容积累。";
-
-}
-
-else if(score<=40){
-
-type="表达赚钱型（创作者）";
-
-desc="你适合通过内容赚钱。";
-
-t1="创意强";
-
-t2="表达力";
-
-t3="想法多";
-
-text="适合自媒体、短视频、IP赚钱。";
-
-}
-
-else{
-
-type="策略赚钱型（思考者）";
-
-desc="你适合通过策略赚钱。";
-
-t1="分析";
-
-t2="逻辑强";
-
-t3="善观察";
-
-text="适合信息差、资源整合赚钱。";
-
-}
-
-document.getElementById("title").innerText=type;
-
-document.getElementById("desc").innerText=desc;
-
-document.getElementById("t1").innerText=t1;
-
-document.getElementById("t2").innerText=t2;
-
-document.getElementById("t3").innerText=t3;
-
-document.getElementById("analysis").innerText=text;
-
-function goComplete(){
-
-window.location.href="complete.html";
-
-}
-
-</script>
 
 </body>
 
