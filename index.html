@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
 
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+content="width=device-width, initial-scale=1.0">
 
-<title>你的赚钱思维类型测试</title>
+<title>赚钱思维类型测试</title>
 
 <style>
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei";
-}
-
 body{
+
+font-family:Arial;
+
 background:#f4f6fb;
-}
 
-.container{
+margin:0;
 
-max-width:720px;
-
-margin:auto;
-
-padding:20px 15px;
+padding:20px;
 
 }
 
@@ -36,239 +28,65 @@ padding:20px 15px;
 
 background:white;
 
-border-radius:22px;
+max-width:600px;
 
-box-shadow:0 10px 30px rgba(0,0,0,0.06);
-
-overflow:hidden;
-
-}
-
-.hero{
-
-padding:28px 20px;
-
-background:linear-gradient(135deg,#fff7ed,#fff);
-
-}
-
-.title{
-
-font-size:28px;
-
-font-weight:900;
-
-margin-bottom:10px;
-
-}
-
-.desc{
-
-color:#555;
-
-line-height:1.8;
-
-font-size:15px;
-
-}
-
-.section{
+margin:auto;
 
 padding:20px;
 
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
 }
 
-.btn{
+h1{
+
+font-size:26px;
+
+}
+
+button{
 
 width:100%;
 
+padding:15px;
+
 border:none;
 
-padding:16px;
-
-border-radius:16px;
-
-font-size:17px;
-
-font-weight:800;
-
-cursor:pointer;
-
-}
-
-.start{
-
-background:linear-gradient(135deg,#fbbf24,#f59e0b);
-
-color:white;
-
-}
-
-.progress{
-
-margin-bottom:15px;
-
-font-size:14px;
-
-color:#777;
-
-}
-
-.bar{
-
-height:10px;
-
-background:#eee;
-
-border-radius:100px;
-
-overflow:hidden;
-
-margin-bottom:18px;
-
-}
-
-.bar-inner{
-
-height:100%;
+border-radius:12px;
 
 background:#f59e0b;
 
-width:0;
+color:white;
 
-transition:0.3s;
+font-size:16px;
 
-}
+font-weight:bold;
 
-.question{
+cursor:pointer;
 
-font-size:20px;
-
-font-weight:800;
-
-margin-bottom:16px;
+margin-top:15px;
 
 }
 
 .option{
 
-width:100%;
+border:1px solid #ddd;
 
-background:white;
+padding:12px;
 
-border:1px solid #e5e7eb;
+border-radius:10px;
 
-border-radius:14px;
-
-padding:15px;
-
-margin-bottom:10px;
-
-text-align:left;
+margin-top:10px;
 
 cursor:pointer;
 
 }
 
-.result-head{
+.option:hover{
 
-padding:18px;
-
-background:#f4f6fb;
-
-}
-
-.result-type{
-
-background:#f59e0b;
-
-color:white;
-
-text-align:center;
-
-padding:18px;
-
-border-radius:16px;
-
-font-weight:900;
-
-font-size:18px;
-
-}
-
-.info{
-
-background:white;
-
-border-radius:16px;
-
-padding:16px;
-
-margin-top:14px;
-
-}
-
-.info-title{
-
-font-weight:900;
-
-margin-bottom:8px;
-
-}
-
-.big{
-
-background:#0f172a;
-
-color:white;
-
-border-radius:20px;
-
-padding:20px;
-
-margin-top:14px;
-
-text-align:center;
-
-}
-
-.big button{
-
-margin-top:15px;
-
-background:#f59e0b;
-
-border:none;
-
-padding:14px;
-
-border-radius:14px;
-
-font-size:16px;
-
-font-weight:900;
-
-color:white;
-
-width:100%;
-
-}
-
-.action{
-
-margin-top:10px;
-
-}
-
-.light{
-
-background:#eef2f7;
-
-}
-
-.hidden{
-
-display:none;
+background:#fff7ed;
 
 }
 
@@ -278,125 +96,39 @@ display:none;
 
 <body>
 
-<div class="container">
+<div class="card" id="home">
 
-<!--首页-->
+<h1>你的赚钱思维类型测试</h1>
 
-<div id="home" class="card">
-
-<div class="hero">
-
-<div class="title">你的赚钱思维类型测试</div>
-
-<div class="desc">
-
-为什么有的人很努力却赚不到钱？<br>
+<p>
 
 很多时候不是不努力，而是赚钱方式不适合自己。<br>
 
 测一测看看你更适合哪种赚钱方向。
 
-</div>
+</p>
+
+<button onclick="start()">开始测试</button>
 
 </div>
 
-<div class="section">
+<div class="card" id="quiz" style="display:none">
 
-<button class="btn start" onclick="start()">开始测试</button>
-
-</div>
-
-</div>
-
-<!--测试-->
-
-<div id="quiz" class="card hidden">
-
-<div class="section">
-
-<div class="progress" id="p"></div>
-
-<div class="bar">
-
-<div class="bar-inner" id="bar"></div>
-
-</div>
-
-<div class="question" id="q"></div>
+<h2 id="q"></h2>
 
 <div id="opts"></div>
 
 </div>
 
-</div>
+<div class="card" id="result" style="display:none">
 
-<!--结果-->
+<h2>你的赚钱类型是</h2>
 
-<div id="result" class="card hidden">
+<h1 id="type"></h1>
 
-<div class="result-head">
+<p id="adv"></p>
 
-<div>你的赚钱思维类型是</div>
-
-<div class="result-type" id="type"></div>
-
-</div>
-
-<div class="section">
-
-<div class="info">
-
-<div class="info-title">你的赚钱优势</div>
-
-<div id="adv"></div>
-
-</div>
-
-<div class="info">
-
-<div class="info-title">需要注意的地方</div>
-
-<div id="risk"></div>
-
-</div>
-
-<div class="info">
-
-<div class="info-title">更适合你的方向</div>
-
-<div id="dir"></div>
-
-</div>
-
-<div class="info">
-
-<div class="info-title">你的成长关键词</div>
-
-<div id="key"></div>
-
-</div>
-
-<div class="big">
-
-给你的方向建议
-
-<div id="guide" style="margin-top:10px;line-height:1.8"></div>
-
-<button onclick="copy()">复制结果</button>
-
-</div>
-
-<div class="action">
-
-<button class="btn" onclick="start()">重新测试</button>
-
-<button class="btn light" onclick="alert('截图保存即可')">截图保存</button>
-
-</div>
-
-</div>
-
-</div>
+<button onclick="start()">重新测试</button>
 
 </div>
 
@@ -404,31 +136,21 @@ display:none;
 
 let qs=[
 
-["当你很缺钱时","先找马上能做的","先分析方向","先找稳定","找机会"],
-
-["副业吸引你的是","马上能干","研究赚钱逻辑","长期稳定","新机会"],
-
-["你更像","不怕累","不怕研究","不怕慢","敢尝试"],
-
-["别人推荐项目","先试","先研究","看稳定","看机会"]
+["你更喜欢哪种赚钱方式？","马上开始","研究方法","长期积累","抓机会"]
 
 ];
 
 let i=0;
 
-let s=[0,0,0,0];
+let score=[0,0,0,0];
 
 function start(){
 
-i=0;
+home.style.display="none";
 
-s=[0,0,0,0];
+result.style.display="none";
 
-home.classList.add("hidden");
-
-result.classList.add("hidden");
-
-quiz.classList.remove("hidden");
+quiz.style.display="block";
 
 next();
 
@@ -444,25 +166,21 @@ return;
 
 }
 
-p.innerHTML="第 "+(i+1)+" / "+qs.length+" 题";
-
-bar.style.width=((i+1)/qs.length*100)+"%";
-
 q.innerHTML=qs[i][0];
 
 opts.innerHTML="";
 
 for(let j=1;j<=4;j++){
 
-let b=document.createElement("div");
+let d=document.createElement("div");
 
-b.className="option";
+d.className="option";
 
-b.innerHTML=qs[i][j];
+d.innerHTML=qs[i][j];
 
-b.onclick=function(){
+d.onclick=function(){
 
-s[j-1]++;
+score[j-1]++;
 
 i++;
 
@@ -470,7 +188,7 @@ next();
 
 };
 
-opts.appendChild(b);
+opts.appendChild(d);
 
 }
 
@@ -478,47 +196,17 @@ opts.appendChild(b);
 
 function show(){
 
-quiz.classList.add("hidden");
+quiz.style.display="none";
 
-result.classList.remove("hidden");
+result.style.display="block";
 
-let m=Math.max(...s);
+let r=score.indexOf(Math.max(...score));
 
-let r=s.indexOf(m);
+let types=["行动型","思考型","稳定型","机会型"];
 
-let data=[
+type.innerHTML=types[r];
 
-["行动执行型","适合靠执行赚钱","别太急","执行副业","行动","先做再优化"],
-
-["认知策略型","适合用脑赚钱","别想太多","内容副业","思考","方法重要"],
-
-["稳定积累型","适合长期积累","别太保守","长期副业","稳定","慢慢变强"],
-
-["机会探索型","适合抓机会","别分散","趋势副业","机会","选好方向"]
-
-];
-
-let d=data[r];
-
-type.innerHTML=d[0];
-
-adv.innerHTML=d[1];
-
-risk.innerHTML=d[2];
-
-dir.innerHTML=d[3];
-
-key.innerHTML=d[4];
-
-guide.innerHTML=d[5];
-
-}
-
-function copy(){
-
-navigator.clipboard.writeText("我的赚钱类型："+type.innerHTML);
-
-alert("已复制");
+adv.innerHTML="适合你的赚钱方式是："+types[r];
 
 }
 
