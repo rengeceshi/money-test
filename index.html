@@ -1,198 +1,70 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
+<html lang="zh">
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>赚钱人格测试</title>
 
 <style>
 
-*{box-sizing:border-box;}
-
 body{
-
-margin:0;
-
-font-family:"Microsoft YaHei";
-
-background:linear-gradient(135deg,#111827,#1f2937,#0f172a);
-
-min-height:100vh;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-padding:20px;
-
+font-family:Arial;
+background:#0f172a;
 color:white;
-
-}
-
-.card{
-
-background:white;
-
-color:#111827;
-
-max-width:460px;
-
-width:100%;
-
-border-radius:24px;
-
+text-align:center;
 padding:30px;
-
-box-shadow:0 24px 60px rgba(0,0,0,0.28);
-
 }
 
-.badge{
-
-background:#eef2ff;
-
-color:#4338ca;
-
-display:inline-block;
-
-padding:6px 14px;
-
-border-radius:999px;
-
-font-size:13px;
-
-font-weight:700;
-
-margin-bottom:16px;
-
+.box{
+background:white;
+color:black;
+padding:25px;
+border-radius:12px;
+max-width:420px;
+margin:auto;
 }
 
-h1{
-
-font-size:28px;
-
-line-height:1.4;
-
-margin:0 0 10px;
-
+.title{
+font-size:26px;
+font-weight:bold;
+margin-bottom:10px;
 }
 
 .desc{
-
-color:#475569;
-
-font-size:15px;
-
-line-height:1.8;
-
+color:#555;
 margin-bottom:20px;
-
 }
 
-.panel{
-
-background:#f8fafc;
-
-border:1px solid #e2e8f0;
-
-border-radius:18px;
-
-padding:16px;
-
-margin-bottom:20px;
-
-}
-
-.panel-title{
-
-font-size:14px;
-
-font-weight:700;
-
-margin-bottom:10px;
-
-}
-
-.date{
-
-display:grid;
-
-grid-template-columns:1.5fr 1fr 1fr;
-
-gap:10px;
-
-}
-
-select{
-
-width:100%;
-
-padding:14px;
-
-border-radius:14px;
-
-border:1px solid #cbd5e1;
-
-font-size:16px;
-
+input{
+padding:10px;
+margin:5px;
+width:80px;
+border-radius:6px;
+border:1px solid #ccc;
 }
 
 button{
-
-width:100%;
-
-padding:16px;
-
+background:#f59e0b;
 border:none;
-
-border-radius:14px;
-
-background:black;
-
 color:white;
-
-font-size:17px;
-
-font-weight:700;
-
+padding:15px;
+width:100%;
+border-radius:8px;
+font-size:18px;
+margin-top:20px;
 cursor:pointer;
-
 }
 
-.item{
-
-background:#f8fafc;
-
-border:1px solid #e2e8f0;
-
-border-radius:14px;
-
-padding:10px;
-
-margin-top:10px;
-
+.tip{
+margin-top:20px;
+color:#666;
 font-size:14px;
-
-color:#334155;
-
 }
 
 .trust{
-
-text-align:center;
-
+margin-top:15px;
 font-size:13px;
-
-color:#64748b;
-
-margin-top:16px;
-
+color:#888;
 }
 
 </style>
@@ -201,172 +73,38 @@ margin-top:16px;
 
 <body>
 
-<div class="card">
+<div class="box">
 
-<div class="badge">赚钱人格测试 · MVP版</div>
-
-<h1>普通人其实只有4种赚钱体质<br>你属于哪一种？</h1>
+<div class="title">
+普通人其实只有4种赚钱人格
+</div>
 
 <div class="desc">
-
-很多人努力却赚不到钱<br>
-
-不是不努力，而是赚钱方式选错了<br><br>
-
-输入生日查看你更适合：副业 / 项目 / 内容赚钱
-
+很多人赚不到钱不是不努力<br>
+是赚钱方式选错了
 </div>
 
-<div class="panel">
+<p>输入生日查看你适合的赚钱方式</p>
 
-<div class="panel-title">请输入你的生日</div>
+<input placeholder="年">
+<input placeholder="月">
+<input placeholder="日">
 
-<div class="date">
+<button>
+查看我的赚钱人格
+</button>
 
-<select id="year">
-
-<option value="">年份</option>
-
-</select>
-
-<select id="month">
-
-<option value="">月份</option>
-
-</select>
-
-<select id="day">
-
-<option value="">日期</option>
-
-</select>
-
+<div class="tip">
+✔ 适合副业人群<br>
+✔ 3秒生成结果<br>
+✔ 已有3000+人测试
 </div>
-
-</div>
-
-<button onclick="goResult()">查看我的赚钱体质</button>
-
-<div class="item">✔ 适合副业探索人群</div>
-
-<div class="item">✔ 基于数字结构 + 行为倾向模型</div>
-
-<div class="item">✔ 3秒生成赚钱人格结果</div>
 
 <div class="trust">
-
-已有3000+人测试，找到更适合自己的赚钱方式
-
+测试完成可领取赚钱建议
 </div>
 
 </div>
-
-<script>
-
-function initDate(){
-
-var year=document.getElementById("year");
-
-var month=document.getElementById("month");
-
-var day=document.getElementById("day");
-
-for(var y=2026;y>=1960;y--){
-
-var op=document.createElement("option");
-
-op.value=y;
-
-op.text=y+"年";
-
-year.appendChild(op);
-
-}
-
-for(var m=1;m<=12;m++){
-
-var opm=document.createElement("option");
-
-opm.value=m;
-
-opm.text=m+"月";
-
-month.appendChild(opm);
-
-}
-
-updateDay();
-
-year.onchange=updateDay;
-
-month.onchange=updateDay;
-
-}
-
-function updateDay(){
-
-var month=document.getElementById("month").value;
-
-var day=document.getElementById("day");
-
-day.innerHTML="<option value=''>日期</option>";
-
-var max=31;
-
-if(month==4||month==6||month==9||month==11){
-
-max=30;
-
-}
-
-if(month==2){
-
-max=28;
-
-}
-
-for(var d=1;d<=max;d++){
-
-var opd=document.createElement("option");
-
-opd.value=d;
-
-opd.text=d+"日";
-
-day.appendChild(opd);
-
-}
-
-}
-
-function goResult(){
-
-var year=document.getElementById("year").value;
-
-var month=document.getElementById("month").value;
-
-var day=document.getElementById("day").value;
-
-if(!year||!month||!day){
-
-alert("请选择完整生日");
-
-return;
-
-}
-
-var birthday=year+"-"+month+"-"+day;
-
-localStorage.setItem("birthday",birthday);
-
-window.location.href="result.html";
-
-}
-
-initDate();
-
-</script>
 
 </body>
-
 </html>
